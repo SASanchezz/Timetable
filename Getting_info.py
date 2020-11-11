@@ -12,10 +12,17 @@ for i in range(0, len(df['Week'])):
         except ValueError:
             df['Week'][i] = df['Week'][i].split(',')
 
+    df['Group'][i] = str(df['Group'][i])
+
     if type(df['Day'][i]) == str:
         day = df['Day'][i]
     if type(df['Day'][i]) == float:
         df['Day'][i] = day
+
+    if type(df['Time'][i]) == str:
+        time = df['Time'][i]
+    if type(df['Time'][i]) == float:
+        df['Time'][i] = time
 
 for i in range(0, len(df['Week'])):
     if type(df['Week'][i]) != float and type(df['Week'][i]) != int:
@@ -28,11 +35,13 @@ for i in range(0, len(df['Week'])):
                 df['Week'][i][j] = row
         if isinstance(df['Week'][i][0], list) or isinstance(df['Week'][i][1], list):
             df['Week'][i] = list(chain.from_iterable(df['Week'][i]))
-        if isinstance(df['Week'][i][0], str):
-            df['Week'][i] = list(map(int, df['Week'][i]))
+        df['Week'][i] = list(map(int, df['Week'][i]))
+    if type(df['Week'][i]) == int:
+        df['Week'][i] = [df['Week'][i]]
 
 
-    #print(df)
+
+    #print(df.iloc[i][])
 
 
 
