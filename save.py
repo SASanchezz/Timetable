@@ -43,3 +43,15 @@ def day_of_week(nweek, wday):
 for d in table:
     day_of_week(12, d)
 
+
+
+
+
+
+
+
+
+    for ik in range(0, len(weeks)):
+        if (days[ik] != wday):
+            hdf = hdf.drop([ik])
+    hdf = hdf.reset_index(drop=True)
