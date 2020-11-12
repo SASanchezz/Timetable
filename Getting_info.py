@@ -39,7 +39,13 @@ for i in range(0, len(df['Week'])):
     if type(df['Week'][i]) == int:
         df['Week'][i] = [df['Week'][i]]
 
+for i in range(0, len(df['Week'])):
+    #print(type(df['Week'][il]))
 
+    if (type(df['Week'][i]) == float or 10 not in df['Week'][i]) :
+        df = df.drop([i])
+for i in range (0, len(df['Week'])):
+    print (df['Week'][i])
 
     #print(df.iloc[i][])
 

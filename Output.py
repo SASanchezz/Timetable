@@ -13,51 +13,44 @@ table = [
 
 
 def day_of_week(nweek, wday):
+    for il in range(0, len(weeks)):
+        if type(weeks[il]) == float or nweek not in weeks[il]:
+            gi.df.drop(il)
     for i in range(0, len(weeks)):
-        if type(weeks[i]) != float and nweek in weeks[i]:
-            #for wday in table:
-            if days[i] == wday:
-                    #print(times[i])
-                if subjects[i] == 'Англійська мова' or subjects[i] == 'Фізичне виховання':
-                    try:
-                        if subjects[i] != subjects[i+1] or times[i] != times[i+1]:
+        if days[i] == wday:
+            if subjects[i] == 'Англійська мова' or subjects[i] == 'Фізичне виховання':
+                try:
+                    if subjects[i] != subjects[i+1] or times[i] != times[i+1]:
+                        if times[i] != times[i - 1]:
                             print(times[i], end='')
-                            if subjects[i] != 'Англійська мова' and subjects[i] != 'Фізичне виховання' and subjects[i] != 'Українська мова (за професійним спрямуванням)':
-                                print(' -', subjects[i],'(',groups[i],'група)')
-                            elif (subjects[i] == 'Українська мова (за професійним спрямуванням)'):
-                                print(' -', subjects[i].split('(')[0],'(',groups[i],'група)')
-                            else: print(' -', subjects[i])
+                        print(' -', subjects[i])
 
-                    except KeyError:
-                        if subjects[i] != subjects[i] or times[i] != times[i]:
-                            print(times[i], end='')
-                            if subjects[i] != 'Англійська мова' and subjects[i] != 'Фізичне виховання' and subjects[i] != 'Українська мова (за професійним спрямуванням)':
-                                print(' -', subjects[i], '(', groups[i], 'група)')
-                            elif (subjects[i] == 'Українська мова (за професійним спрямуванням)'):
-                                print(' -', subjects[i].split('(')[0], '(', groups[i], 'група)')
-                            else:
-                                print(' -', subjects[i])
+                except KeyError:
+                    if times[i] != times[i - 1]:
+                        print(times[i], end='')
+                    print(' -', subjects[i])
 
 
-                else:
-                    try:
-                        if subjects[i] != subjects[i+1] or times[i] != times[i+1] or groups[i] != groups[i+1]:
+            else:
+                try:
+                    if subjects[i] != subjects[i+1] or times[i] != times[i+1] or groups[i] != groups[i+1]:
+                        if times[i] != times[i - 1]:
                             print(times[i], end='')
-                            if subjects[i] != 'Англійська мова' and subjects[i] != 'Фізичне виховання' and subjects[i] != 'Українська мова (за професійним спрямуванням)':
-                                print(' -', subjects[i],'(',groups[i],'група)')
-                            elif (subjects[i] == 'Українська мова (за професійним спрямуванням)'):
-                                print(' -', subjects[i].split('(')[0],'(',groups[i],'група)')
-                            else: print(' -', subjects[i])
+                        if subjects[i] != 'Англійська мова' and subjects[i] != 'Фізичне виховання' and subjects[i] != 'Українська мова (за професійним спрямуванням)':
+                            print(' -', subjects[i],'(',groups[i],'група)')
+                        elif (subjects[i] == 'Українська мова (за професійним спрямуванням)'):
+                            print(' -', subjects[i].split('(')[0],'(',groups[i],'група)')
+                        else: print(' -', subjects[i])
 
-                    except KeyError:
-                        if subjects[i] != subjects[i] or times[i] != times[i]:
-                            print(times[i], end='')
-                            if subjects[i] != 'Англійська мова' and subjects[i] != 'Фізичне виховання' and subjects[i] != 'Українська мова (за професійним спрямуванням)':
-                                print(' -', subjects[i], '(', groups[i], 'група)')
-                            elif (subjects[i] == 'Українська мова (за професійним спрямуванням)'):
-                                print(' -', subjects[i].split('(')[0], '(', groups[i], 'група)')
-                            else:
-                                print(' -', subjects[i])
+                except KeyError:
+                    if times[i] != times[i - 1]:
+                        print(times[i], end='')
+                    if subjects[i] != 'Англійська мова' and subjects[i] != 'Фізичне виховання' and subjects[i] != 'Українська мова (за професійним спрямуванням)':
+                        print(' -', subjects[i], '(', groups[i], 'група)')
+                    elif (subjects[i] == 'Українська мова (за професійним спрямуванням)'):
+                        print(' -', subjects[i].split('(')[0], '(', groups[i], 'група)')
+                    else:
+                        print(' -', subjects[i])
 
 
 for d in table:
