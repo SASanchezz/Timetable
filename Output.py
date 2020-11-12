@@ -58,9 +58,9 @@ def day_of_week(nweek, wday):
                                 print(' -', subjects[i].split('(')[0], '(', groups[i], 'група)')
                             else:
                                 print(' -', subjects[i])
-    print(times[len(weeks)-1], '-', subjects[len(weeks)-1], '(', groups[len(weeks)-1], 'група)')
+
 
 for d in table:
     print(d)
-    day_of_week(10, d)
+    day_of_week(12, d)
 
