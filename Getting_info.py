@@ -46,7 +46,7 @@ for i in range(0, len(df['Week'])):
 
 
 
-    #print(df['Week'][i])
+    #print(df['Time'][i])
 
     #print (len(df['Week']))
 
